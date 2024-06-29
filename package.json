@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "strapi-plugin-navigation": "^2.5.2"
+  }
+}
