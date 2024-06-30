@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_product_product_sizes",
+  "info": {
+    "displayName": "Size Component",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "size": {
+      "type": "string",
+      "required": true
+    },
+    "barcode": {
+      "type": "string",
+      "required": true
+    },
+    "stock": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

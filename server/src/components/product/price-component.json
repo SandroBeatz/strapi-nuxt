@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_internal_price_components",
+  "info": {
+    "displayName": "Price Component",
+    "icon": "",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "old_price": {
+      "type": "decimal"
+    },
+    "currency_code": {
+      "type": "enumeration",
+      "enum": [
+        "kgs",
+        "usd",
+        "rub"
+      ],
+      "default": "kgs",
+      "required": true
+    }
+  }
+}
