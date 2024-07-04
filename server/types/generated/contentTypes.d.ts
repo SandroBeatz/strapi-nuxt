@@ -953,7 +953,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -981,6 +980,19 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.user',
       'manyToOne',
       'plugin::users-permissions.role'
+    >;
+    phone: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::strapi-phone-validator.phone',
+        {
+          country: 'kg';
+        }
+      >;
+    profile: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::profile.profile'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1331,6 +1343,44 @@ export interface ApiProductItemProductItem extends Schema.CollectionType {
   };
 }
 
+export interface ApiProfileProfile extends Schema.CollectionType {
+  collectionName: 'profiles';
+  info: {
+    singularName: 'profile';
+    pluralName: 'profiles';
+    displayName: 'Profiles';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    first_name: Attribute.String & Attribute.Required;
+    last_name: Attribute.String & Attribute.Required;
+    birthday_date: Attribute.Date;
+    sex: Attribute.Enumeration<['male', 'female']> & Attribute.Required;
+    user: Attribute.Relation<
+      'api::profile.profile',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::profile.profile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::profile.profile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSubcategorySubcategory extends Schema.CollectionType {
   collectionName: 'subcategories';
   info: {
@@ -1504,6 +1554,7 @@ declare module '@strapi/types' {
       'api::page.page': ApiPagePage;
       'api::product.product': ApiProductProduct;
       'api::product-item.product-item': ApiProductItemProductItem;
+      'api::profile.profile': ApiProfileProfile;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
       'api::subsubcategory.subsubcategory': ApiSubsubcategorySubsubcategory;
     }
