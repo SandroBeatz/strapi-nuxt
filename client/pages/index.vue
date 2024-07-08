@@ -1,8 +1,10 @@
 <script setup lang="ts">
 
+import MHeader from "~/components/Header/MHeader.vue";
 </script>
 
 <template>
+  <m-header/>
   <UContainer>
     <UCard class="mt-10">
       <template #header>

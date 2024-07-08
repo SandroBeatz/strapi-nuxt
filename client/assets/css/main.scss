@@ -1,0 +1,7 @@
+@tailwind base; /* Preflight will be injected here */
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply text-[15px];
+}

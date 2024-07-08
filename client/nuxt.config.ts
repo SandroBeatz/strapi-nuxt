@@ -2,5 +2,5 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/ui", "@nuxtjs/apollo"],
-  css: ['@/assets/scss/main.scss']
+  css: ['@/assets/css/main.scss']
 })
