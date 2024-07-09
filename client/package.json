@@ -15,5 +15,8 @@
     "@nuxtjs/apollo": "^5.0.0-alpha.14",
     "nuxt": "^3.12.3",
     "sass": "^1.77.6"
+  },
+  "dependencies": {
+    "nuxt-swiper": "^1.2.2"
   }
 }
