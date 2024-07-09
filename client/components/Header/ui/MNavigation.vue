@@ -14,7 +14,7 @@ defineProps<Props>()
 </script>
 
 <template>
-  <ul class="flex items-center gap-6">
+  <ul class="flex items-center gap-10">
     <template v-for="(item, index) in items" :key="index">
       <li>
         <nuxt-link :to="item.to">
