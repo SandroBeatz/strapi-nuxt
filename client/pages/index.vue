@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import MHeroSliderSection from "~/components/dynamic-zone/HeroSlider/MHeroSliderSection.vue";
 import MCategoriesSliderSection from "~/components/dynamic-zone/CategoriesSlider/MCategoriesSliderSection.vue";
+import MProductsSliderSection from "~/components/dynamic-zone/ProductsSlider/MProductsSliderSection.vue";
+import MCollectionsSection from "~/components/dynamic-zone/Collections/MCollectionsSection.vue";
 </script>
 
 <template>
   <m-hero-slider-section />
   <m-categories-slider-section/>
+  <m-products-slider-section/>
+  <m-collections-section/>
   <UContainer>
     <UCard class="mt-10">
       <template #header>

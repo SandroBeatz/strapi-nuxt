@@ -36,7 +36,7 @@ const items = [
 </script>
 
 <template>
-  <header class="border-b border-gray-200 py-4">
+  <header class="border-b border-gray-200 py-4 sticky top-0 z-50 bg-white">
     <UContainer :ui="{constrained: 'max-w-full'}">
       <div class="flex items-center">
         <div class="flex items-center flex-1">
