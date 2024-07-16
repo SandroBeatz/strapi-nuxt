@@ -1,0 +1,78 @@
+{
+  "__schema": {
+    "types": [
+      {
+        "kind": "UNION",
+        "name": "GenericMorph",
+        "possibleTypes": [
+          {
+            "name": "Category"
+          },
+          {
+            "name": "Color"
+          },
+          {
+            "name": "ComponentProductPriceComponent"
+          },
+          {
+            "name": "ComponentProductProductSizes"
+          },
+          {
+            "name": "I18NLocale"
+          },
+          {
+            "name": "Page"
+          },
+          {
+            "name": "Product"
+          },
+          {
+            "name": "ProductItem"
+          },
+          {
+            "name": "Profile"
+          },
+          {
+            "name": "Subcategory"
+          },
+          {
+            "name": "Subsubcategory"
+          },
+          {
+            "name": "UploadFile"
+          },
+          {
+            "name": "UploadFolder"
+          },
+          {
+            "name": "UsersPermissionsPermission"
+          },
+          {
+            "name": "UsersPermissionsRole"
+          },
+          {
+            "name": "UsersPermissionsUser"
+          }
+        ]
+      },
+      {
+        "kind": "UNION",
+        "name": "NavigationItemRelated",
+        "possibleTypes": [
+          {
+            "name": "Category"
+          },
+          {
+            "name": "Page"
+          },
+          {
+            "name": "Subcategory"
+          },
+          {
+            "name": "Subsubcategory"
+          }
+        ]
+      }
+    ]
+  }
+}
