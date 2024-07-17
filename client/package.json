@@ -20,6 +20,8 @@
     "sass": "^1.77.6"
   },
   "dependencies": {
-    "nuxt-swiper": "^1.2.2"
+    "@pinia/nuxt": "^0.5.1",
+    "nuxt-swiper": "^1.2.2",
+    "pinia": "^2.1.7"
   }
 }

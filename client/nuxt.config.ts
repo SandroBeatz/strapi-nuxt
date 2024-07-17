@@ -3,7 +3,7 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@nuxtjs/apollo", "nuxt-swiper"],
+  modules: ["@nuxt/ui", "@pinia/nuxt", "@nuxtjs/apollo", "nuxt-swiper"],
   css: ['@/assets/css/main.scss'],
 
   apollo: {

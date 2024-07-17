@@ -1,17 +1,13 @@
 <script setup lang="ts">
 import MBasketButton from "~/components/Header/ui/MBasketButton.vue";
 import MNavigation from "~/components/Header/ui/MNavigation.vue";
+import {NAVIGATIONS} from "~/graphql/navigations/navigation.query";
 
-const links = [{
-  label: 'Новинки',
-  to: `/`
-}, {
-  label: 'Бренды',
-  to: '/'
-}, {
-  label: 'Распродажа',
-  to: '/'
-}]
+
+interface Query {
+  renderNavigation: any[]
+}
+
 
 const items = [
   [{
@@ -33,6 +29,17 @@ const items = [
     disabled: true
   }]
 ]
+
+const variables = { lang: "ru" }
+//
+const navigation = useAsyncQuery<Query>(NAVIGATIONS, variables)
+
+const fitNavigation = computed(() => {
+  return navigation.data.value?.renderNavigation.map(i => ({
+    label: i.title,
+    to: i.path,
+  }))
+})
 </script>
 
 <template>
@@ -52,7 +59,8 @@ const items = [
             <img src="@/assets/img/logo.svg" alt="Monday" class="w-auto h-8">
           </nuxt-link>
 
-          <m-navigation :items="links" class="ml-12 mr-12"/>
+<!--          <pre>{{navigation.data}}</pre>-->
+          <m-navigation :items="fitNavigation" class="ml-12 mr-12"/>
 
           <div class="flex flex-1 justify-center">
             <UInput
