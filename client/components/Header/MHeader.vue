@@ -3,11 +3,9 @@ import MBasketButton from "~/components/Header/ui/MBasketButton.vue";
 import MNavigation from "~/components/Header/ui/MNavigation.vue";
 import {NAVIGATIONS} from "~/graphql/navigations/navigation.query";
 
-
 interface Query {
   renderNavigation: any[]
 }
-
 
 const items = [
   [{

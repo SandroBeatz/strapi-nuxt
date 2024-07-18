@@ -14,5 +14,23 @@ export const NAVIGATIONS = gql`
                 title
                 path
             }
+            related {
+                id
+                __typename
+                ... on NavigationItemRelatedData {
+                    id
+                    attributes {
+                        __typename
+                        ... on Page {
+                            title
+                            slug
+                        }
+                        ... on Category {
+                            title
+                            slug
+                        }
+                    }
+                }
+            }
         }
     }`
