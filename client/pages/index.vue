@@ -16,8 +16,6 @@ const page = useAsyncQuery(PAGE, variables)
 <template>
   <ColorScheme><USelect v-model="$colorMode.preference" :options="['system', 'light', 'dark']" /></ColorScheme>
   <pre>{{page.data.value?.page.data}}</pre>
-<!--  <pre>fsafs</pre>-->
-<!--  <pre>{{store.data}}</pre>-->
   <m-hero-slider-section />
   <m-categories-slider-section/>
   <m-products-slider-section/>

@@ -7,7 +7,7 @@ import MHeader from "~/components/Header/MHeader.vue";
   <div class="flex flex-col min-h-screen">
     <m-header/>
     <main class="flex-1">
-      <slot />
+      <NuxtPage />
     </main>
     <m-footer/>
   </div>
