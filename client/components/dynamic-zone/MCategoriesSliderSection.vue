@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import MCardCategory from "~/components/shared/Cards/MCardCategory.vue";
-import CategoryImg from "@/assets/img/categories/category-1.jpg"
+import CategoryImg from "assets/img/categories/category-1.jpg"
 </script>
 
 <template>

@@ -41,18 +41,18 @@ const fitNavigation = computed(() => {
 </script>
 
 <template>
-  <header class="border-b border-gray-200 py-4 sticky top-0 z-50 bg-white">
+  <header class="border-b border-gray-200 py-4 sticky top-0 z-50 bg-white dark:bg-gray-800">
     <UContainer :ui="{constrained: 'max-w-full'}">
       <div class="flex items-center">
         <div class="flex items-center flex-1">
-          <UButton
-              icon="i-heroicons-bars-3-bottom-left-solid"
-              size="xl"
-              color="primary"
-              square
-              variant="ghost"
-              class="mr-4"
-          />
+<!--          <UButton-->
+<!--              icon="i-heroicons-bars-3-bottom-left-solid"-->
+<!--              size="xl"-->
+<!--              color="primary"-->
+<!--              square-->
+<!--              variant="ghost"-->
+<!--              class="mr-4"-->
+<!--          />-->
           <nuxt-link>
             <img src="@/assets/img/logo.svg" alt="Monday" class="w-auto h-8">
           </nuxt-link>
@@ -75,6 +75,8 @@ const fitNavigation = computed(() => {
         </div>
         <div class="ml-auto flex items-center pl-10">
           <m-basket-button class="mr-6"/>
+
+          <ColorScheme><USelect class="mr-6" v-model="$colorMode.preference" :options="['system', 'light', 'dark']" /></ColorScheme>
 
           <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
             <UAvatar

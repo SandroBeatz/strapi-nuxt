@@ -1,5 +1,17 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface DynamicZoneMainBanner extends Schema.Component {
+  collectionName: 'components_dynamic_zone_main_banners';
+  info: {
+    displayName: 'Main Banner';
+    icon: 'slideshow';
+    description: '';
+  };
+  attributes: {
+    images: Attribute.Media<'images' | 'videos', true> & Attribute.Required;
+  };
+}
+
 export interface ProductPriceComponent extends Schema.Component {
   collectionName: 'components_internal_price_components';
   info: {
@@ -32,6 +44,7 @@ export interface ProductProductSizes extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'dynamic-zone.main-banner': DynamicZoneMainBanner;
       'product.price-component': ProductPriceComponent;
       'product.product-sizes': ProductProductSizes;
     }

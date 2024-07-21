@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CategoryImg from "@/assets/img/categories/category-1.jpg"
+import CategoryImg from "assets/img/categories/category-1.jpg"
 import MCardItem from "~/components/shared/Cards/MCardItem.vue";
 </script>
 

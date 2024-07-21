@@ -21,5 +21,9 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: "2024-07-15"
+  compatibilityDate: "2024-07-15",
+  components: {
+    global: true,
+    dirs: ['~/components/dynamic-zone']
+  }
 })

@@ -1,4 +1,5 @@
 import gql from 'graphql-tag'
+import {COMPONENTS} from "~/graphql/components.query";
 
 export const PAGE = gql`
     query page($slug: String! $lang: I18NLocaleCode!) {
@@ -9,7 +10,26 @@ export const PAGE = gql`
                     title
                     description
                     slug
+                    dynamic_zone {
+                        __typename
+                        ...on ComponentDynamicZoneMainBanner {
+                            ...MainBanner
+                        }
+#                        ... on ComponentDynamicZoneMainBanner {
+#                            images {
+#                                data {
+#                                    id
+#                                    attributes {
+#                                        alternativeText
+#                                        url
+#                                    }
+#                                }
+#                            }
+#                        }
+                    }
                 }
             }
         }
-    }`
+    }
+    ${COMPONENTS}
+`
