@@ -1053,9 +1053,9 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'manyToMany',
       'api::subcategory.subcategory'
     >;
-    product: Attribute.Relation<
+    products: Attribute.Relation<
       'api::category.category',
-      'manyToOne',
+      'oneToMany',
       'api::product.product'
     >;
     createdAt: Attribute.DateTime;
@@ -1236,19 +1236,19 @@ export interface ApiProductProduct extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    categories: Attribute.Relation<
+    category: Attribute.Relation<
       'api::product.product',
-      'oneToMany',
+      'manyToOne',
       'api::category.category'
     >;
-    subcategories: Attribute.Relation<
+    subcategory: Attribute.Relation<
       'api::product.product',
-      'oneToMany',
+      'manyToOne',
       'api::subcategory.subcategory'
     >;
-    subsubcategories: Attribute.Relation<
+    subsubcategory: Attribute.Relation<
       'api::product.product',
-      'oneToMany',
+      'manyToOne',
       'api::subsubcategory.subsubcategory'
     >;
     price: Attribute.Component<'product.price-component'> &
@@ -1434,9 +1434,9 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
       'manyToMany',
       'api::subsubcategory.subsubcategory'
     >;
-    product: Attribute.Relation<
+    products: Attribute.Relation<
       'api::subcategory.subcategory',
-      'manyToOne',
+      'oneToMany',
       'api::product.product'
     >;
     createdAt: Attribute.DateTime;
@@ -1505,9 +1505,9 @@ export interface ApiSubsubcategorySubsubcategory extends Schema.CollectionType {
       'manyToMany',
       'api::subcategory.subcategory'
     >;
-    product: Attribute.Relation<
+    products: Attribute.Relation<
       'api::subsubcategory.subsubcategory',
-      'manyToOne',
+      'oneToMany',
       'api::product.product'
     >;
     createdAt: Attribute.DateTime;

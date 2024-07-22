@@ -5,10 +5,9 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 const route = useRoute();
+const template = route.meta.template;
 
 const templateComponent = computed(() => {
-  const template = route.meta.template;
-
   if (template === 'catalog') {
     return defineAsyncComponent(() => import('~/components/templates/catalog.vue'));
   } else {

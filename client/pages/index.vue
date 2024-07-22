@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import MHeroSliderSection from "~/components/dynamic-zone/MHeroSliderSection.vue";
 import MCategoriesSliderSection from "~/components/dynamic-zone/MCategoriesSliderSection.vue";
 import MProductsSliderSection from "~/components/dynamic-zone/MProductsSliderSection.vue";
 import MCollectionsSection from "~/components/dynamic-zone/MCollectionsSection.vue";
@@ -24,8 +23,6 @@ const pageData = computed(() => {
     </template>
   </div>
 
-<!--  <pre>{{page.data.value?.page.data}}</pre>-->
-  <m-hero-slider-section />
   <m-categories-slider-section/>
   <m-products-slider-section/>
   <m-collections-section/>
