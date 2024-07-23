@@ -15,7 +15,6 @@ defineProps<Props>()
 <template>
 <div class="">
   <div class="relative mb-3">
-
     <UButton
         icon="i-heroicons-heart"
         :ui="{ rounded: 'rounded-full' }"
