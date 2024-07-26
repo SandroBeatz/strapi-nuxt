@@ -1601,6 +1601,20 @@
   dependencies:
     "@iconify/types" "*"
 
+"@iconify-json/material-symbols-light@^1.1.25":
+  version "1.1.25"
+  resolved "https://registry.yarnpkg.com/@iconify-json/material-symbols-light/-/material-symbols-light-1.1.25.tgz#8c8557a78602857463e4d7d3d670c46f2f824657"
+  integrity sha512-Ld+biDaXRY1Yrko0BtzGkidwt2MsNFyaql9Mpkfl2wfUfbK0/CCrJCMclRz5+VtGHWkfd5iv1EYqEvceLK805A==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/mdi@^1.1.67":
+  version "1.1.67"
+  resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.1.67.tgz#89e82b598c7bd98880a5f46a20f94c55038e1546"
+  integrity sha512-00nllHES8hyACwIfgySlQgAE6MKgpr2wsKfpifMiZWZ9aXC5l4Jb0lR3lJSWwXgOW6kzAOdzC3T+2VOfBBZ13A==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify/collections@^1.0.406":
   version "1.0.437"
   resolved "https://registry.yarnpkg.com/@iconify/collections/-/collections-1.0.437.tgz#8631066a82794b497441dc0d98a538ec65c134bd"
