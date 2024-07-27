@@ -34,6 +34,7 @@ const hasProduct = computed(() => !!productResponse.data.value?.product.data)
 const product = computed(() => productResponse.data.value?.product.data)
 const title = computed(() => hasProduct.value ? product.value.attributes.title : '')
 const shortDescription = computed(() => hasProduct.value ? product.value.attributes.short_description : '')
+const description = computed(() => hasProduct.value ? product.value.attributes.description : '')
 const category = computed(() => {
   if (hasProduct.value) {
     const subcategory = product.value.attributes.subcategory.data
@@ -300,13 +301,7 @@ const items = [{
                   </table>
                 </div>
                 <div class="">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, consequuntur deserunt dolor eligendi
-                    explicabo fugiat id illo illum in incidunt inventore ipsum, nam non obcaecati pariatur possimus quidem
-                    quisquam quos sed vel. Accusantium aliquam aspernatur, at atque cumque deserunt dolor dolorum ducimus et
-                    exercitationem facere id ipsam iure laboriosam magnam maxime neque nesciunt odio praesentium, provident
-                    quaerat quia quo rem repellendus saepe, sapiente voluptatem! Ab animi autem blanditiis cum deserunt dolores
-                    ipsam maiores mollitia necessitatibus nobis perferendis perspiciatis, placeat provident quae quam qui quidem
-                    quo reiciendis similique sint voluptas voluptatem.</p>
+                  {{description}}
                 </div>
               </div>
             </template>

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "product-item",
     "pluralName": "product-items",
-    "displayName": "Product Items"
+    "displayName": "Product Items",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -28,17 +29,17 @@
       "inversedBy": "product_item"
     },
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": true,
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "required": true
+      }
     },
     "sizes": {
       "type": "component",
@@ -49,6 +50,15 @@
         }
       },
       "component": "product.product-sizes"
+    },
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
     }
   }
 }

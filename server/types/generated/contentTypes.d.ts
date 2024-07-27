@@ -1293,6 +1293,7 @@ export interface ApiProductItemProductItem extends Schema.CollectionType {
     singularName: 'product-item';
     pluralName: 'product-items';
     displayName: 'Product Items';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1324,6 +1325,13 @@ export interface ApiProductItemProductItem extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;
