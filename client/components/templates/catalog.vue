@@ -2,6 +2,7 @@
 // import CategoryImg from "assets/img/categories/category-1.jpg";
 import MCardItem from "~/components/shared/Cards/MCardItem.vue";
 import {PRODUCTS} from "~/graphql/products.query";
+import {CATEGORY} from "~/graphql/category.query";
 
 interface Query {
   productItems: any
@@ -21,6 +22,7 @@ const categories = [
     to: '/components/table'
   }
 ]
+
 const sizes = [
   {
     label: '40',
@@ -42,13 +44,16 @@ const sizes = [
 
 const route = useRoute()
 
+const categoryQuery = computed(() => {
+  const parts = route.path.split('/')
+  return parts[1]
+})
+
 const queryParams = computed(() => {
   const parts = route.path.split('/')
 
   const category = parts[1]
   const subCategory = parts[2]
-
-  // console.log(splitted)
 
   return {
     category: category ? {eq: category} : undefined,
@@ -56,26 +61,53 @@ const queryParams = computed(() => {
   }
 })
 
-
-const variables = {
+const categoryResponse = useAsyncQuery<Query>(CATEGORY, {
+  lang: lang,
+  category: categoryQuery.value
+})
+const productsResponse = useAsyncQuery<Query>(PRODUCTS, {
   lang: lang,
   ...queryParams.value
-}
-
-const productsResponse = useAsyncQuery<Query>(PRODUCTS, variables)
+})
 
 const products = computed(() => {
   return productsResponse.data.value?.productItems.data
 })
+
+const category = computed(() => (categoryResponse.data.value?.category.data.attributes))
+const subCategories = computed(() => category.value ? category.value.subcategories.data.map(i => {
+  return {
+    avatar: '/asfsa/fs',
+    label: i.attributes.title,
+    to: `/${categoryQuery.value}/${i.attributes.slug}`,
+  }
+}) : [])
+
+const BREADCRUMBS = computed(() => ([
+  { label: 'Главная', to: '/', labelClass: 'font-normal text-sm' },
+  ...(category.value ? [{ label: category.value.title, to: `/${category.value.slug}`, labelClass: 'font-normal text-sm' }] : []),
+  { label: 'Верхняя одежда', labelClass: 'font-normal text-sm' }
+]))
 </script>
 
 <template>
   <div class="py-8">
     <UContainer>
+      <UBreadcrumb
+          class="mb-6 text-sm"
+          divider="/"
+          :links="BREADCRUMBS"
+      ></UBreadcrumb>
+
+      <div class="mb-6">
+        <UHorizontalNavigation :links="subCategories" class="border-b border-gray-200 dark:border-gray-800" />
+      </div>
+
       <div class="grid grid-cols-5 gap-6 w-full">
         <div class="border-r border-slate-200 pr-6">
+<!--          <pre>{{subCategories}}</pre>-->
           <div class="mb-4">
-            <h5>Мужская одежда</h5>
+            <h5>Бренд</h5>
             <UVerticalNavigation :links="categories">
               <template #default="{ link }">
                 <span class="group-hover:text-primary relative">{{ link.label }}</span>
@@ -84,12 +116,26 @@ const products = computed(() => {
           </div>
 
           <div class="mb-4">
-            <h5>Размеры</h5>
+            <h5>Цвет</h5>
             <UVerticalNavigation :links="sizes">
               <template #default="{ link }">
                 <span class="group-hover:text-primary relative">{{ link.label }}</span>
               </template>
             </UVerticalNavigation>
+          </div>
+
+          <div class="mb-4">
+            <h5>Размер</h5>
+            <UVerticalNavigation :links="sizes">
+              <template #default="{ link }">
+                <span class="group-hover:text-primary relative">{{ link.label }}</span>
+              </template>
+            </UVerticalNavigation>
+          </div>
+
+          <div class="mb-4">
+            <h5>Цена</h5>
+
           </div>
         </div>
         <div class="col-span-4">

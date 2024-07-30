@@ -34,9 +34,33 @@ module.exports = {
 
               const response = toEntityResponse(data.results[0]);
 
-              console.log("##################", response, "##################");
+              // console.log("##################", response, "##################");
 
               return response;
+            },
+          },
+        },
+      },
+    }));
+    extensionService.use(({ strapi }) => ({
+      typeDefs: `
+            type Query {
+              category(slug: String!): CategoryEntityResponse
+            }
+          `,
+      resolvers: {
+        Query: {
+          category: {
+            resolve: async (parent, args, context) => {
+              const { toEntityResponse } = strapi.service(
+                "plugin::graphql.format"
+              ).returnTypes;
+
+              const data = await strapi.services["api::category.category"].find({
+                filters: { slug: args.slug },
+              });
+
+              return toEntityResponse(data.results[0]);
             },
           },
         },
